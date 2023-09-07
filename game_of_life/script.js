@@ -9,14 +9,6 @@ const cols = HEIGHT / resolution;
 let prevcount = 0;
 
 
-function sorry() {
-    let s = new Array(rows).fill().map( x => new Array(cols).fill(0) );
-
-    for(let i=0; i<rows; ++i) {
-        for(let j=0; j<cols; ++j) s[i][j] = 1;
-    }
-    return s;
-}
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
@@ -67,16 +59,7 @@ function draw() {
     }
     if(c*99 >= (rows*cols)) {}
     else {
-        map = sorry();
-        for(let i=0; i<rows; ++i) {
-            for(let j=0; j<cols; ++j) {
-                if(map[i][j] == 1){
-                    fill(255);
-                    rect(i*resolution, j*resolution, resolution, resolution);
-                }
-            }
-        }
-        noloop();
+        map = make2dArray();
     }
 
 
